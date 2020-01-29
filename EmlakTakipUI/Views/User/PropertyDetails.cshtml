@@ -1,0 +1,136 @@
+﻿@model EmlakTakipUI.Models.PropertyDetailsModel
+
+@{
+    ViewBag.Title = "PropertyDetails";
+}
+<style>
+    dt {
+    margin-top:12px;
+    }
+    dd {
+    margin-top:13px;
+    }
+</style>
+<h2>İlan Detayları</h2>
+
+<div>
+    
+    <div class="row">
+        <div class="col-md-6">
+            <img style="height:100%;width:100%" src="~/Upload/@Model.ImageName" alt="@Model.ImageName" />
+        </div>
+        <div class="col-md-6">
+            <dl class="dl-horizontal">
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PropertyType.Ad)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PropertyType.Ad)
+                </dd>
+                <dt></dt>
+                <dd></dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SquareMeter)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SquareMeter)
+                </dd>
+                <dt></dt>
+                <dd></dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.RoomCount)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.RoomCount)
+                </dd>
+                <dt></dt>
+                <dd></dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LivingRoomCount)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LivingRoomCount)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Floor)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Floor)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.NumberOfFloors)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NumberOfFloors)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Date)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Date)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.State)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.State)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.EMail)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EMail)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.WarmingType)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.WarmingType)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+</div>
+<p>
+   
+</p>

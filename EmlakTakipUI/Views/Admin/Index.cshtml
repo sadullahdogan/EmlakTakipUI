@@ -1,0 +1,74 @@
+﻿@model DatabaseAccessLayer.Entities.Company
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    dt{
+        margin-top:15px;
+
+    }
+    dd {
+    margin-top:15px;
+    }
+</style>
+
+<div>
+    <h4>Şirket Bilgileri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ManagerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManagerName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ManagerSurname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManagerSurname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMail)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fax)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

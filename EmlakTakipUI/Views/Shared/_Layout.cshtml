@@ -1,0 +1,88 @@
+﻿  <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="~/Logo/logo.jpg" alt="Alternate Text" style="width:50px;height:50px;" />
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (User.IsInRole("admin"))
+                    {
+                        <li class="navbar-link">
+                            <a class="navbar-right" href="/User/Index">İlanları Listele<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="navbar-link">
+                            <a class="navbar-right" href="/Admin/Index">Şirket Detay<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="navbar-link">
+                            <a class="navbar-right" href="/Admin/Edit">Şirket Bilgilerini Düzenle<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="navbar-link">
+                            <a class="navbar-right" href="/Admin/AddPropertyType">Emlak Türü Ekle<span class="sr-only">(current)</span></a>
+                        </li>
+                    }
+                    else if (User.IsInRole("user"))
+                    {
+                        <li class="navbar-link">
+                            <a class="navbar-right" href="/User/Index">İlanları Listele <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="navbar-link">
+                            <a class="navbar-right" href="/User/AddProperty">İlan Oluştur<span class="sr-only">(current)</span></a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="navbar-link">
+                            <a href="/User/Index">İlanları Listele<span class="sr-only">(current)</span></a>
+                        </li>
+                    }
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li><a href="#"><span class="glyphicon glyphicon-user">@User.Identity.Name</span></a></li>
+                        <li class="navbar-link"><a href="/Account/Logout"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+                    }
+                    else
+                    {
+                        <li class="navbar-link">
+                            <a href="/Account/Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li">
+                        }
+
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<div class="body-content">
+    @RenderBody()
+    <hr />
+
+</div>
+<footer>
+    @{Html.RenderAction("AboutUs", "Home");}
+
+</footer>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+</body>
+</html>

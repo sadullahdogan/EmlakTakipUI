@@ -1,0 +1,81 @@
+﻿@model DatabaseAccessLayer.Entities.Company
+<style>
+    .footer {
+        background: #152F4F;
+        color: white;
+    }
+
+        .footer .links ul {
+            list-style-type: none;
+        }
+
+        .footer .links li a {
+            color: white;
+            -webkit-transition: color .2s;
+            transition: color .2s;
+        }
+
+            .footer .links li a:hover {
+                text-decoration: none;
+                color: #4180CB;
+            }
+
+        .footer .about-company i {
+            font-size: 25px;
+        }
+
+        .footer .about-company a {
+            color: white;
+            -webkit-transition: color .2s;
+            transition: color .2s;
+        }
+
+            .footer .about-company a:hover {
+                color: #4180CB;
+            }
+
+        .footer .location i {
+            font-size: 18px;
+        }
+
+        .footer .copyright p {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    li {
+    margin-top:5px;
+    }
+</style>
+<div class="footer">
+
+    <div class="row body-content">
+        <div class="col-lg-5 col-xs-12 about-company">
+            <h4>Contacy Us</h4>
+            <p class="pr-5 text-white-50">Mail Adresimizden bizimle 7/24 iletişime geçebilirsiniz.</p>
+            <p><a href="https://www.linkedin.com/in/sadullah-do%C4%9Fan-60097618a/" target="_blank"><i class="fa fa-linkedin-square">@Model.ManagerName &nbsp @Model.ManagerSurname</i></a></p>
+        </div>
+        <div class="col-lg-3 col-xs-12 links">
+            <h4 class="mt-lg-0 mt-sm-3"></h4>
+            <ul class="m-0 p-0">
+                <li><img src="~/Logo/logo.jpg" alt="@Model.Logo" style="width:75px;height:75px;"/></li>
+                
+                <li>- <a href="#">Sorun Bildir</a></li>
+                <li>- <a href="#">Görüş ve Öneri</a></li>
+
+            </ul>
+        </div>
+        <div class="col-lg-4 col-xs-12 location">
+            <h4 class="mt-lg-0 mt-sm-4">Adres</h4>
+            <p>@Model.Adress</p>
+            <p class="mb-0"><i class="glyphicon glyphicon-phone"></i><a href="tel:@Model.Phone">@Model.Phone</a></p>
+            <p><i class="glyphicon glyphicon-phone-alt"></i>@Model.Fax</p>
+            <p><i class="glyphicon glyphicon-copyright-mark"></i><a href="mailto:@Model.EMail">@Model.EMail</a></p>
+
+
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col copyright">
+            <p class=""><small class="text-white-50">© 2019. All Rights Reserved.</small></p>
+        </div>
+    </div>
+</div>

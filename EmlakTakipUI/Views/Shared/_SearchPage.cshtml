@@ -1,0 +1,85 @@
+﻿@model EmlakTakipUI.Models.PropertySearchModel
+    <div class="navbar-header navbar-collapse">
+
+        @using (Html.BeginForm("Index", "User", FormMethod.Get))
+        {
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayName("Konut Türü")
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SquareMeter)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RoomCount)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LivingRoomCount)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Floor)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NumberOfFloors)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Adress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.WarmingType)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.State)
+                    </th>
+
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DropDownListFor(model => model.PropertyTypeId, (SelectList)ViewBag.PropertyTypeId, "Seçiniz", htmlAttributes: new { @class = "form-control input-sm" })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.SquareMeter, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.RoomCount, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.LivingRoomCount, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.Floor, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.NumberOfFloors, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.Adress, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                    </td>
+                    <td>
+                        @Html.EnumDropDownListFor(model => model.WarmingType, htmlAttributes: new { @class = "form-control input-sm" })
+                    </td>
+                    <td>
+                        @Html.EnumDropDownListFor(model => model.State, htmlAttributes: new { @class = "form-control input-sm" })
+                    </td>
+
+                </tr>
+                <tr>
+                   <td>
+                       <button type="submit" class="btn btn-primary">Ara</button>
+                   </td>
+                </tr>
+            </table>
+
+        }
+
+
+
+
+
+
+
+
+
+    </div>
