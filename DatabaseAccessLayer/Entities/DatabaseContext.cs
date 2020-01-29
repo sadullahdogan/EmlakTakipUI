@@ -12,10 +12,10 @@ namespace DatabaseAccessLayer.Entities
         {
             
         }
-        public DbSet<Company> Companies { get; set; }
+       
         public DbSet<PropertyType> PropertyTypes { get; set; }
         public DbSet<Property> Properties { get; set; }
+        public DbSet<Company> Companies { get; set; }
 
-        
     }
 }

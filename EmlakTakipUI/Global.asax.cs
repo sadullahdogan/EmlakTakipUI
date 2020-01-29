@@ -1,4 +1,5 @@
 
+using DatabaseAccessLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -16,7 +17,7 @@ namespace EmlakTakipUI
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             Database.SetInitializer(new Identity.IdentityInitalizer());
-            
+            Database.SetInitializer(new DataInitilaizer());
 
 
 

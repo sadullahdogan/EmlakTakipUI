@@ -42,6 +42,15 @@ namespace EmlakTakipUI.Identity
                 manager.AddToRole(user.Id, "user");
             }
 
+            if (!context.Users.Any(x => x.Email == "deneme@deneme.com"))
+            {
+                var store = new UserStore<ApplicationUsers>(context);
+                var manager = new UserManager<ApplicationUsers>(store);
+                var user = new ApplicationUsers() { Name = "Deneme", Surname = "Deneme", Email = "deneme@deneme.com", PhoneNumber = "111111111111", EmailConfirmed = true, UserName = "deneme" };
+                manager.Create(user, "password");
+              
+                manager.AddToRole(user.Id, "user");
+            }
             base.Seed(context);
         }
     }

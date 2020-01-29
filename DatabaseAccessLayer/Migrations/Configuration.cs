@@ -11,7 +11,6 @@
         {
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
-            ContextKey = "DatabaseAccessLayer.Entities.DatabaseContext";
         }
 
         protected override void Seed(DatabaseAccessLayer.Entities.DatabaseContext context)
