@@ -24,6 +24,12 @@
                         @Html.DisplayNameFor(model => model.NumberOfFloors)
                     </th>
                     <th>
+                        @Html.DisplayNameFor(model => model.MinPrice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MaxPrice)
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.Adress)
                     </th>
                     <th>
@@ -53,6 +59,12 @@
                     </td>
                     <td>
                         @Html.EditorFor(model => model.NumberOfFloors, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.MinPrice, new { htmlAttributes = new { @class = "form-control input-sm" } })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.MaxPrice, new { htmlAttributes = new { @class = "form-control input-sm" } })
                     </td>
                     <td>
                         @Html.EditorFor(model => model.Adress, new { htmlAttributes = new { @class = "form-control input-sm" } })

@@ -93,6 +93,10 @@ namespace EmlakTakipUI.Controllers
             var result = db.Properties.AsQueryable();
             if (searchModel != null)
             {
+                if (searchModel.MinPrice.HasValue)
+                    result = result.Where(x => x.Price > searchModel.MinPrice);
+                if (searchModel.MaxPrice.HasValue)
+                    result = result.Where(x => x.Price < searchModel.MaxPrice);
                 if (!String.IsNullOrWhiteSpace(searchModel.Adress))
                     result = result.Where(x => x.Adress.Contains(searchModel.Adress));
                 if (searchModel.SquareMeter.HasValue)

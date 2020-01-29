@@ -42,6 +42,9 @@
                 @Html.DisplayNameFor(model => model.State)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Adress)
             </th>
             <th></th>
@@ -49,54 +52,57 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    <img style="height:100px;width:100px" src="~/Upload/@item.ImageName" alt="@item.ImageName"/>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PropertyType.Ad)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SquareMeter)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RoomCount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LivingRoomCount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Floor)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NumberOfFloors)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.WarmingType)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.State)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Adress)
-                </td>
-                <td>
+    <tr>
+        <td>
+            <img style="height:100px;width:100px" src="~/Upload/@item.ImageName" alt="@item.ImageName" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PropertyType.Ad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SquareMeter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LivingRoomCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Floor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfFloors)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WarmingType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price) TL
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adress)
+        </td>
+        <td>
 
 
-                    @if (item.Username.Equals(User.Identity.Name))
-                    {
-                        @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
-                    }
-                    else
-                    {
-                        @Html.ActionLink("Detaylar", "PropertyDetails", new { id = item.Id }, new { @class = "btn btn-primary" })
-                    }
+            @if (item.Username.Equals(User.Identity.Name))
+            {
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
+            }
+            else
+            {
+                @Html.ActionLink("Detaylar", "PropertyDetails", new { id = item.Id }, new { @class = "btn btn-primary" })
+            }
 
-                </td>
-            </tr>
+        </td>
+    </tr>
         }
 
     </table>
