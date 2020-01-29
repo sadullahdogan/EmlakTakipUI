@@ -39,5 +39,6 @@ namespace EmlakTakipUI.Models
         [ DisplayName("Açıklama")]
         public string Description { get; set; }
         public string ImageName { get; set; }
+        public double Price { get; set; }
     }
 }

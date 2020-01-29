@@ -7,6 +7,8 @@
 
 @Html.Partial("~/Views/Shared/_SearchPage.cshtml", new EmlakTakipUI.Models.PropertySearchModel())
 <div class="container body-content">
+    @if (Model.Count() > 0)
+    {
     <table class="table table-responsive table-striped">
         <tr>
             <th>
@@ -40,7 +42,7 @@
                 @Html.DisplayNameFor(model => model.State)
             </th>
             <th>
-                @Html.DisplayNameFor(model=>model.Adress)
+                @Html.DisplayNameFor(model => model.Adress)
             </th>
             <th></th>
         </tr>
@@ -79,7 +81,7 @@
                     @Html.DisplayFor(modelItem => item.State)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem=>item.Adress)
+                    @Html.DisplayFor(modelItem => item.Adress)
                 </td>
                 <td>
 
@@ -98,4 +100,13 @@
         }
 
     </table>
+    }
+    else { 
+<table>
+    <tr> <th><p class="bg-warning">Aramanıza uygun Ürün bulunamadı</p></tr>
+
+
+</table>
+    
+    }
 </div>

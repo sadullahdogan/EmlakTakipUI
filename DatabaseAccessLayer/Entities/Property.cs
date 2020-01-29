@@ -36,6 +36,7 @@ namespace DatabaseAccessLayer.Entities
         [Required, DisplayName("Adres")]
         public string Adress { get; set; }
         public string ImageName { get; set; }
+        public double Price { get; set; }
     }
     public enum WarmingType {
         [Display(Name = "Seçiniz")]

@@ -26,7 +26,10 @@ namespace EmlakTakipUI.Models
         public string Adress { get; set; }
         [DisplayName("Isınma Tipi")]
         public WarmingType WarmingType { get; set; }
-
+        [DisplayName("En düşük Fiyat")]
+        public int MinPrice { get; set; }
+        [DisplayName("En Yüksek Fiyat")]
+        public int MaxPrice { get; set; }
         [DisplayName("İlan Tipi")]
         public State State { get; set; }
 
