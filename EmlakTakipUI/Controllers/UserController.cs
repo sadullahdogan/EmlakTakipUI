@@ -3,13 +3,13 @@ using EmlakTakipUI.Identity;
 using EmlakTakipUI.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
 using System;
-using System.Collections.Generic;
+using PagedList;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace EmlakTakipUI.Controllers
 {
@@ -23,8 +23,9 @@ namespace EmlakTakipUI.Controllers
             userManager = new UserManager<ApplicationUsers>(userStore);
         }
         // GET: User
-        public ActionResult Index(PropertySearchModel m)
+        public ActionResult Index(PropertySearchModel m, int?_pageNo)
         {
+           
             ViewBag.PropertyTypeId = new SelectList(db.PropertyTypes, "Id", "Ad");
             //return RedirectToAction("Action", new { id = 99 });
             if (m == null)
@@ -32,12 +33,32 @@ namespace EmlakTakipUI.Controllers
                 return View(db.Properties.ToList());
             }
             else {
+                int _pageno = _pageNo ?? 1;
                 var model = GetProducts(m);
-                return View(model.ToList());
+                
+                model = model.OrderBy(x => x.Date);
+                
+                return View(model.ToPagedList(_pageno,2));
             }
             
         }
-        
+        public ActionResult Edit(int id) {
+            var model = db.Properties.Find(id);
+            ViewBag.PropertyTypeId = new SelectList(db.PropertyTypes, "Id", "Ad");
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Edit(Property p,HttpPostedFileBase image) {
+            if (image != null) {
+                p.ImageName = image.FileName;
+                var yuklemeYeri = Path.Combine(Server.MapPath("~/Upload"), image.FileName);
+                image.SaveAs(yuklemeYeri);
+            }
+
+            db.Entry(p).State = EntityState.Modified;
+            db.SaveChanges();
+            return View();
+        }
         [Authorize]
         public ActionResult PropertyDetails(int id) {
             var property = db.Properties.Find(id);

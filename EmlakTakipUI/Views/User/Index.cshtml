@@ -1,8 +1,11 @@
-﻿@model IEnumerable<DatabaseAccessLayer.Entities.Property>
+﻿@using PagedList
+@using PagedList.Mvc
+
+@model IPagedList<DatabaseAccessLayer.Entities.Property>
 
 @{
     ViewBag.Title = "Index";
-    
+
 
 }
 
@@ -10,110 +13,116 @@
 <div class="container body-content">
     @if (Model.Count() > 0)
     {
-    <table class="table table-responsive table-striped">
-        <tr>
-            <th>
-                @Html.Label("Resim")
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PropertyType.Ad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SquareMeter)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RoomCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LivingRoomCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Floor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NumberOfFloors)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WarmingType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.State)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Adress)
-            </th>
-            <th></th>
-        </tr>
+        <table class="table table-responsive table-striped">
+            <tr>
+                <th>
+                    @Html.Label("Resim")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].PropertyType.Ad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].SquareMeter)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].RoomCount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].LivingRoomCount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Floor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].NumberOfFloors)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].WarmingType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].State)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model[0].Adress)
+                </th>
+                <th></th>
+            </tr>
 
-        @foreach (var item in Model)
-        {
-    <tr>
-        <td>
-            <img style="height:100px;width:100px" src="~/Upload/@item.ImageName" alt="@item.ImageName" />
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PropertyType.Ad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SquareMeter)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RoomCount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LivingRoomCount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Floor)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberOfFloors)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.WarmingType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.State)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price) TL
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Adress)
-        </td>
-        <td>
-
-
-            @if (item.Username.Equals(User.Identity.Name))
+            @foreach (var item in Model)
             {
-                @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
-            }
-            else
-            {
-                @Html.ActionLink("Detaylar", "PropertyDetails", new { id = item.Id }, new { @class = "btn btn-primary" })
+                <tr>
+                    <td>
+                        <img style="height:100px;width:100px" src="~/Upload/@item.ImageName" alt="@item.ImageName" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PropertyType.Ad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SquareMeter)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoomCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LivingRoomCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Floor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NumberOfFloors)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WarmingType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.State)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price) TL
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adress)
+                    </td>
+                    <td>
+
+
+                        @if (item.Username.Equals(User.Identity.Name))
+                        {
+                            @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-warning" })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Detaylar", "PropertyDetails", new { id = item.Id }, new { @class = "btn btn-primary" })
+                        }
+
+                    </td>
+                </tr>
             }
 
-        </td>
-    </tr>
-        }
+        </table>
+        @Html.PagedListPager(Model, _sayfaNo => Url.Action("Index", "User", new { _pageNo = _sayfaNo }))
 
-    </table>
+
     }
-    else { 
-<table>
-    <tr> <th><p class="bg-warning">Aramanıza uygun Ürün bulunamadı</p></tr>
+    else
+    {
+        <table>
+            <tr> <th><p class="bg-warning">Aramanıza uygun Ürün bulunamadı</p></tr>
 
 
-</table>
-    
+        </table>
+
     }
 </div>
+
+    
