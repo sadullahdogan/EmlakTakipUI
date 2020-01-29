@@ -28,18 +28,14 @@ namespace EmlakTakipUI.Controllers
            
             ViewBag.PropertyTypeId = new SelectList(db.PropertyTypes, "Id", "Ad");
             //return RedirectToAction("Action", new { id = 99 });
-            if (m == null)
-            {
-                return View(db.Properties.ToList());
-            }
-            else {
-                int _pageno = _pageNo ?? 1;
+            
+                
                 var model = GetProducts(m);
                 
-                model = model.OrderBy(x => x.Date);
+               
                 
-                return View(model.ToPagedList(_pageno,2));
-            }
+                return View(model.ToList());
+            
             
         }
         public ActionResult Edit(int id) {
@@ -109,6 +105,7 @@ namespace EmlakTakipUI.Controllers
             }
             return View();
         }
+        
         public IQueryable<Property> GetProducts(PropertySearchModel searchModel)
         {
             var result = db.Properties.AsQueryable();
